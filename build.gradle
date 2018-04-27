@@ -1,0 +1,70 @@
+apply plugin: 'com.android.library'
+
+ext {
+    bintrayRepo = "maven"
+    bintrayName = 'basecommon'
+    artifact = bintrayName
+    publishedGroupId = "com.xt.component"
+    libraryName = 'basecommon build lib '
+    libraryDescription = 'basecommon build lib '
+    libraryVersion = "1.0.0"
+    siteUrl = "https://github.com/palapalawj/Component"
+    gitUrl = "https://github.com/palapalawj/Component.git"
+    developerId = "palapalawj"
+    developerName = "palapalawj"
+    developerEmail = "lijinhui1206@gmail.com"
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+android {
+    compileSdkVersion 26
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+}
+
+dependencies {
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    testCompile 'junit:junit:4.12'
+    androidTestCompile 'com.android.support.test:runner:1.0.1'
+    androidTestCompile 'com.android.support.test.espresso:espresso-core:3.0.1'
+    //rxjava
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.0'
+    implementation 'io.reactivex.rxjava2:rxandroid:latest.release'
+
+    //network - squareup
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.8.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.8.1'
+    implementation 'com.ncornette.cache:okcache-control:1.1.1'
+    compile 'com.jakewharton:disklrucache:2.0.2'
+
+    //json - google gson
+    implementation 'com.google.code.gson:gson:2.8.1'
+}
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
